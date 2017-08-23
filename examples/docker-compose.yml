@@ -1,0 +1,91 @@
+version: '2'
+
+services:
+  piwik-app:
+    image: tiredofit/piwik
+    container_name: piwik-app
+    links:
+      - piwik-db
+    volumes:
+      - ./data:/www/piwik
+      - ./logs:/www/logs
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - VIRTUAL_HOST=piwik.hostname.com
+      - VIRTUAL_NETWORK=nginx-proxy
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=host.hostname.com
+      - LETSENCRYPT_EMAIL=user@hostname.com
+
+      - ZABBIX_HOSTNAME=piwik-app
+
+      - DB_HOST=piwik-db
+      - DB_NAME=piwik
+      - DB_USER=piwik
+      - DB_PASS=userpassword
+
+      - CRON_PERIOD=60
+    networks:
+      - proxy-tier
+    restart: always
+    
+  piwik-db:
+    image: tiredofit/mariadb
+    container_name: piwik-db
+    volumes:
+      - /var/local/db/piwik:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=piwik
+      - MYSQL_USER=piwik
+      - MYSQL_PASSWORD=userpassword
+
+      - ZABBIX_HOSTNAME=piwik-db
+
+    networks:
+      - proxy-tier
+    restart: always
+
+  piwik-db-backup:
+    container_name: piwik-db-backup
+    image: tiredofit/mysql-backup
+    links:
+     - piwik-db
+    volumes:
+      - ./dbbackup:/backup
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - DB_SERVER=piwik-db
+      - DB_NAME=piwik
+      - DB_USER=piwik
+      - DB_PASSWORD=userpassword
+      - DB_DUMP_FREQ=1440
+      - DB_DUMP_BEGIN=0000
+      - DB_CLEANUP_TIME=8640
+
+      - MD5=TRUE
+      - COMPRESSION=BZ
+      - SPLIT_DB=FALSE
+
+      - ZABBIX_HOSTNAME=piwik-db-backup
+
+    networks:
+      - proxy-tier
+    restart: always
+
+  piwik-redis:
+    container_name: piwik-redis
+    restart: always
+    image: tiredofit/redis
+    environment: 
+      - ZABBIX_HOSTNAME=piwik-redis
+    networks:
+      - proxy-tier
+    volumes:
+      - ./redis:/var/lib/redis:Z
+
+
+networks:
+  proxy-tier:
+    external:
+      name: nginx-proxy
