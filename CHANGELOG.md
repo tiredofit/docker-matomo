@@ -1,3 +1,7 @@
+## 3.0 2017-08-27 <dave at tiredofit dot ca>
+
+* Major Version Bump due to base
+
 ## 2.2 2017-07-06 <dave at tiredofit dot ca>
 
 * PHP_TIMEOUT addition

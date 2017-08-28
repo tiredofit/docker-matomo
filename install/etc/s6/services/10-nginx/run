@@ -2,7 +2,10 @@
 
 if [ ! -f /tmp/state/10-nginx ]; then
 
-sleep 2
+while [ ! -f /tmp/state/99-container-init ]
+do
+  sleep 1
+done
   
   ### Adjust Runtime Variables
   sed -i -e "s/<CRON_PERIOD>/$CRON_PERIOD/g" /assets/cron/crontab.txt

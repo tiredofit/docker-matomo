@@ -15,8 +15,7 @@ MAINTAINER Dave Conroy <dave at tiredofit dot ca>
         tar" && \
    
         apk add ${BUILD_DEPS} \
-        geoip \
-        php7-iconv \
+                geoip \
         && \
 
 ### Compile & Install Custom PHP7-GeoIP Module
@@ -34,5 +33,6 @@ MAINTAINER Dave Conroy <dave at tiredofit dot ca>
        apk del ${BUILD_DEPS} php7-dev php7-pear && \
        rm -rf /var/cache/apk/* /tmp/*
 
-   ADD install/nginx /etc/nginx
-   ADD assets /assets
+### Files Addition
+  ADD install /
+
