@@ -39,7 +39,7 @@ This image relies on an external MySQL Server, external SMTP Server, external Re
 
 # Installation
 
-Automated builds of the image are available on [Registry](https://hub.docker.com/tiredofit/piwik) and is the recommended method of installation.
+Automated builds of the image are available on [Docker Hub](https://hub.docker.com/tiredofit/piwik) and is the recommended method of installation.
 
 
 ```bash
@@ -76,15 +76,11 @@ GRANT ALL PRIVILEGES ON `piwik`.* TO 'piwik'@'%.%.%.%';
 
 ### Environment Variables
 
-Below is the complete list of available options that can be used to customize your installation.
+Along with the Environment Variables from the [Base image](https://hub.docker.com/r/tiredofit/alpine), and the [Nginx+PHP-FPM Engine](https://hub.docker.com/r/tiredofit/nginx-php-fpm) below is the complete list of available options that can be used to customize your installation.
+
 
 | Parameter | Description |
 |-----------|-------------|
-| `PHP_MEMORY_LIMIT` |Amount of memory php-fpm process should use (Default 128M) |
-| `UPLOAD_MAX_SIZE` | Maximum Upload Size: (Default 2G) |
-| `APC_SHM_SIZE` | PHP7 APC SHM Cache Size: (Default 128M) |
-| `OPCACHE_MEM_SIZE` | PHP7 OPCache Size (Default 128) |
-| `TZ` | Timezone - Use Unix Timezone format (Default America/Vancouver) |
 | `DB_HOST` | MySQL external container hostname (e.g. piwik1-db)
 | `DB_NAME` | MySQL database name i.e. (e.g. piwik)
 | `DB_USER` | MySQL username for database (e.g. piwik)
