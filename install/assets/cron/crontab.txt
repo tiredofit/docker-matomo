@@ -1,3 +1,0 @@
-*/<CRON_PERIOD> * * * * su -s "/bin/bash" -c "/usr/bin/php7 /www/piwik/console core:archive" nginx >/dev/null 2>&1
-
-
