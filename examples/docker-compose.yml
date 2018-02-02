@@ -4,7 +4,7 @@ services:
   matomo-redis:
     container_name: matomo-redis
     restart: always
-    image: registry.selfdesign.org/docker/redis:latest
+    image: tiredofit/redis:latest
     command:
     - --loglevel warning
     networks:
@@ -13,7 +13,7 @@ services:
     - ./redis:/var/lib/redis:Z
 
   matomo-app:
-    image: registry.selfdesign.org/docker/matomo
+    image: tiredofit/matomo
     container_name: matomo-app
     links:
       - matomo-db
@@ -41,7 +41,7 @@ services:
     restart: always
     
   matomo-db:
-    image: registry.selfdesign.org/docker/mariadb
+    image: tiredofit/mariadb
     container_name: matomo-db
     volumes:
       - /var/local/db/matomo:/var/lib/mysql
@@ -60,7 +60,7 @@ services:
 
   matomo-db-backup:
     container_name: matomo-db-backup
-    image: registry.selfdesign.org/docker/mysql-backup
+    image: tiredofit/mysql-backup
     links:
      - matomo-db
     volumes:

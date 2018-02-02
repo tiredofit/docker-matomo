@@ -1,4 +1,4 @@
-# registry.selfdesign.org/docker/piwik
+# tiredofit/piwik
 
 # Introduction
 
@@ -14,7 +14,7 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
 
 # Authors
 
-- [Dave Conroy](daveconroy@selfdesign.org) [https://git.selfdesign.org/daveconroy]
+- [Dave Conroy](dave at tiredofit dot ca) [https://github.com/tiredofit]
 
 # Table of Contents
 
@@ -39,11 +39,11 @@ This image relies on an external MySQL Server, external SMTP Server, external Re
 
 # Installation
 
-Automated builds of the image are available on [Registry](https://registry.selfdesign.org/docker/piwik) and is the recommended method of installation.
+Automated builds of the image are available on [Registry](https://tiredofit/piwik) and is the recommended method of installation.
 
 
 ```bash
-docker pull registry.selfdesign.org/docker/piwik
+docker pull tiredofit/piwik
 ```
 
 # Quick Start
