@@ -1,0 +1,31 @@
+#!/usr/bin/with-contenv bash
+
+  ### Adjust Runtime Variables
+  sed -i -e "s/<CRON_PERIOD>/$CRON_PERIOD/g" /assets/cron/crontab.txt
+
+  ### Make sure that DB is accessible
+  while true; do
+    mysqlcmd='mysql -u'$DB_USER' -h'$DB_HOST' -p'$DB_PASS 
+    out="`$mysqlcmd -e "SELECT COUNT(*) FROM information_schema.FILES;" 2>&1`"
+    echo "$out" | grep -E "COUNT|Enter" 2>&1 > /dev/null
+    if [ $? -eq 0 ]; then
+      echo "** [matomo] MySQL Server "$DB_HOST" is up !"
+      break
+    fi
+    echo "** [matomo] MySQL Server "$DB_HOST" still isn't up, sleeping a little bit ..."
+    sleep 2
+  done
+
+  ### Check to see if Matomo Installed, if not, download and setup..
+  if [ ! -f /www/matomo/index.php ]; then
+          echo '** [matomo] No Piwik Installation Found, Installing...'
+          mkdir -p /www/matomo
+          curl https://builds.matomo.org/piwik-latest.tar.gz | tar xfz - --strip 1 -C /www/matomo
+          curl https://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz | gunzip -c >/www/matomo/misc/GeoIPCity.dat
+          echo '** [matomo] Install Complete'
+  fi
+
+  ### Set Permissions
+    chown -R nginx:www-data /www
+    mkdir -p /tmp/state
+    echo 'Initialization Complete' >/tmp/state/10-matomo-init

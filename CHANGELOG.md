@@ -1,3 +1,9 @@
+## 3.1 2018-03-06 <dave at tiredofit dot ca>
+
+* Cleanup Code to work better with the nginx-php-fpm base images
+* Fix some Downloading errors
+* Now tracks latest Piwik version
+    
 ## 3.0 2018-02-01 <dave at tiredofit dot ca>
 
 * Change to Matomo

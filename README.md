@@ -1,8 +1,8 @@
-# tiredofit/piwik
+# tiredofit/matomo
 
 # Introduction
 
-Dockerfile to build a [piwik](https://www.piwik.org/) container image. It is an Open Source Google Analytics Replacement.
+Dockerfile to build a [matomo](https://www.matomo.org/) container image. It is an Open Source Google Analytics Replacement.
 
 It will automatically download the latest Piwik release upon build, and if you have set correct environment variables, will autocreate a database if you wish.
 
@@ -39,11 +39,11 @@ This image relies on an external MySQL Server, external SMTP Server, external Re
 
 # Installation
 
-Automated builds of the image are available on [Registry](https://tiredofit/piwik) and is the recommended method of installation.
+Automated builds of the image are available on [Registry](https://tiredofit/matomo) and is the recommended method of installation.
 
 
 ```bash
-docker pull tiredofit/piwik
+docker pull tiredofit/matomo
 ```
 
 # Quick Start
@@ -61,7 +61,7 @@ The following directories are used for configuration and can be mapped for persi
 
 | Directory | Description |
 |-----------|-------------|
-| `/www/piwik` | Root piwik Directory |
+| `/www/matomo` | Root matomo Directory |
 | `/www/logs` | Nginx and php-fpm logfiles |
 
 ### Database
@@ -69,9 +69,9 @@ The following directories are used for configuration and can be mapped for persi
 This container requires the usage of an external database. Set one up accordingly.
 
 ```sql
-CREATE USER 'piwik'@'%.%.%.%' IDENTIFIED BY 'password';
-CREATE DATABASE IF NOT EXISTS `piwik` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;
-GRANT ALL PRIVILEGES ON `piwik`.* TO 'piwik'@'%.%.%.%';
+CREATE USER 'matomo'@'%.%.%.%' IDENTIFIED BY 'password';
+CREATE DATABASE IF NOT EXISTS `matomo` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;
+GRANT ALL PRIVILEGES ON `matomo`.* TO 'matomo'@'%.%.%.%';
 ```
 
 ### Environment Variables
@@ -80,14 +80,9 @@ Below is the complete list of available options that can be used to customize yo
 
 | Parameter | Description |
 |-----------|-------------|
-| `PHP_MEMORY_LIMIT` |Amount of memory php-fpm process should use (Default 128M) |
-| `UPLOAD_MAX_SIZE` | Maximum Upload Size: (Default 2G) |
-| `APC_SHM_SIZE` | PHP7 APC SHM Cache Size: (Default 128M) |
-| `OPCACHE_MEM_SIZE` | PHP7 OPCache Size (Default 128) |
-| `TZ` | Timezone - Use Unix Timezone format (Default America/Vancouver) |
-| `DB_HOST` | MySQL external container hostname (e.g. piwik1-db)
-| `DB_NAME` | MySQL database name i.e. (e.g. piwik)
-| `DB_USER` | MySQL username for database (e.g. piwik)
+| `DB_HOST` | MySQL external container hostname (e.g. matomo1-db)
+| `DB_NAME` | MySQL database name i.e. (e.g. matomo)
+| `DB_USER` | MySQL username for database (e.g. matomo)
 | `DB_PASS` | MySQL password for database (e.g. userpassword)
 
 
@@ -105,10 +100,10 @@ The following ports are exposed.
 For debugging and maintenance purposes you may want access the containers shell. 
 
 ```bash
-docker exec -it (whatever your container name is e.g. piwik) bash
+docker exec -it (whatever your container name is e.g. matomo) bash
 ```
 
 # References
 
-* https://www.piwik.org
+* https://www.matomo.org
 
