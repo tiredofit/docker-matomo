@@ -14,7 +14,7 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
 
 # Authors
 
-- [Dave Conroy](dave at tiredofit dot ca) [https://github.com/tiredofit]
+- [Dave Conroy][https://github.com/tiredofit]
 
 # Table of Contents
 
@@ -39,7 +39,7 @@ This image relies on an external MySQL Server, external SMTP Server, external Re
 
 # Installation
 
-Automated builds of the image are available on [Registry](https://tiredofit/matomo) and is the recommended method of installation.
+Automated builds of the image are available on [Registry](https://hub.docker.com/r/tiredofit/matomo) and is the recommended method of installation.
 
 
 ```bash
