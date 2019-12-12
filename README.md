@@ -1,11 +1,5 @@
 # tiredofit/matomo
 
-[![Build Status](https://img.shields.io/docker/build/tiredofit/matomo.svg)](https://hub.docker.com/r/tiredofit/matomo)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tiredofit/matomo.svg)](https://hub.docker.com/r/tiredofit/matomo)
-[![Docker Stars](https://img.shields.io/docker/stars/tiredofit/matomo.svg)](https://hub.docker.com/r/tiredofit/matomo)
-[![Docker Layers](https://images.microbadger.com/badges/image/tiredofit/matomo.svg)](https://microbadger.com/images/tiredofit/matomo)
-[![Image Size](https://img.shields.io/microbadger/image-size/tiredofit/matomo.svg)](https://microbadger.com/images/tiredofit/matomo)
-
 # Introduction
 
 Dockerfile to build a [matomo](https://www.matomo.org/) container image. It is an Open Source Google Analytics Replacement.

@@ -1,3 +1,34 @@
+## 3.5.2 2019-12-12 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Fix Crontab when not using standard Webroot
+
+
+## 3.5.1 2019-12-12 <dave at tiredofit dot ca>
+
+   ### Added
+      - Add Redis, LDAP PHP Extensions
+
+
+## 3.5.0 2019-12-04 <dave at tiredofit dot ca>
+
+   ### Added
+      - Refactor Image to support new tiredofit/nginx-php-fpm base image
+
+
+## 3.4 2019-06-29 <dave at tiredofit dot ca>
+
+* PHP 7.3
+* Alpine 3.10
+
+## 3.3 2018-11-30 <dave at tiredofit dot ca>
+
+* Switch to PHP 7.2
+
+## 3.2 2018-03-06 <dave at tiredofit dot ca>
+
+* Add LLNG Handler Support
+
 ## 3.1 2018-03-06 <dave at tiredofit dot ca>
 
 * Cleanup Code to work better with the nginx-php-fpm base images
