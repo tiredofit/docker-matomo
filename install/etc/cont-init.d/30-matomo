@@ -3,6 +3,7 @@
 ### Adjust Runtime Variables
 sed -i -e "s#<CRON_PERIOD>#${CRON_PERIOD}#g" /assets/cron/crontab.txt
 sed -i -e "s#<WEBROOT>#${NGINX_WEBROOT}#g" /assets/cron/crontab.txt
+sed -i -e "s#<NGINX_USER>#${NGINX_USER}#g" /assets/cron/crontab.txt
 
 ### Make sure that DB is accessible
 while true; do
@@ -27,6 +28,6 @@ if [ ! -f ${NGINX_WEBROOT}/index.php ]; then
 fi
 
 ### Set Permissions
-chown -R nginx:www-data ${NGINX_WEBROOT}
+chown -R ${NGINX_USER}:${NGINX_GROUP} ${NGINX_WEBROOT}
 mkdir -p /tmp/state
 echo 'Initialization Complete' >/tmp/state/30-init-matomo

@@ -1,3 +1,20 @@
+## 3.5.5 2019-12-18 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Change to support dynamic user/group for webserver
+
+
+## 3.5.4 2019-12-16 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Fix spelling mistake when enabling PHP_REDIS
+
+
+## 3.5.3 2019-12-16 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Modification to Redis
+
 ## 3.5.2 2019-12-12 <dave at tiredofit dot ca>
 
    ### Changed
