@@ -1,33 +1,25 @@
 #!/usr/bin/with-contenv bash
 
+source /assets/functions/*
+PROCESS_NAME="matomo"
+
 ### Adjust Runtime Variables
 sed -i -e "s#<CRON_PERIOD>#${CRON_PERIOD}#g" /assets/cron/crontab.txt
 sed -i -e "s#<WEBROOT>#${NGINX_WEBROOT}#g" /assets/cron/crontab.txt
 sed -i -e "s#<NGINX_USER>#${NGINX_USER}#g" /assets/cron/crontab.txt
 
-### Make sure that DB is accessible
-while true; do
-    mysqlcmd='mysql -u'$DB_USER' -h'$DB_HOST' -p'$DB_PASS 
-    out="`$mysqlcmd -e "SELECT COUNT(*) FROM information_schema.FILES;" 2>&1`"
-    echo "$out" | grep -E "COUNT|Enter" 2>&1 > /dev/null
-    if [ $? -eq 0 ]; then
-      echo "** [matomo] MySQL Server "$DB_HOST" is up !"
-      break
-    fi
-    echo "** [matomo] MySQL Server "$DB_HOST" still isn't up, sleeping a little bit ..."
-    sleep 2
-done
+sanity_db
+db_check mariadb
 
 ### Check to see if Matomo Installed, if not, download and setup..
 if [ ! -f ${NGINX_WEBROOT}/index.php ]; then
-        echo '** [matomo] No Piwik Installation Found, Installing...'
+        print_warn "No Matomo Installation Found, Installing..."
         mkdir -p ${NGINX_WEBROOT}
         curl https://builds.matomo.org/piwik-latest.tar.gz | tar xfz - --strip 1 -C ${NGINX_WEBROOT}
         curl https://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz | gunzip -c >${NGINX_WEBROOT}/misc/GeoIPCity.dat
-        echo '** [matomo] Install Complete'
+        print_info "Install Complete"
 fi
 
 ### Set Permissions
 chown -R ${NGINX_USER}:${NGINX_GROUP} ${NGINX_WEBROOT}
-mkdir -p /tmp/state
-echo 'Initialization Complete' >/tmp/state/30-init-matomo
+liftoff

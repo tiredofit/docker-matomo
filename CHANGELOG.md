@@ -1,3 +1,9 @@
+## 3.6.0 2019-12-29 <dave at tiredofit dot ca>
+
+   ### Added
+      - Support new tiredofit/nginx and tiredofit/alpine base images
+
+
 ## 3.5.5 2019-12-18 <dave at tiredofit dot ca>
 
    ### Changed
