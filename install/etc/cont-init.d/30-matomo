@@ -1,7 +1,9 @@
 #!/usr/bin/with-contenv bash
 
-source /assets/functions/*
+for s in /assets/functions/*; do source $s; done
 PROCESS_NAME="matomo"
+
+check_service_initialized init 20-php-fpm
 
 ### Adjust Runtime Variables
 sed -i -e "s#<CRON_PERIOD>#${CRON_PERIOD}#g" /assets/cron/crontab.txt
@@ -17,6 +19,7 @@ if [ ! -f ${NGINX_WEBROOT}/index.php ]; then
         mkdir -p ${NGINX_WEBROOT}
         curl https://builds.matomo.org/piwik-latest.tar.gz | tar xfz - --strip 1 -C ${NGINX_WEBROOT}
         curl https://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz | gunzip -c >${NGINX_WEBROOT}/misc/GeoIPCity.dat
+        chown -R ${NGINX_USER}:${NGINX_GROUP} ${NGINX_WEBROOT}
         print_info "Install Complete"
 fi
 
