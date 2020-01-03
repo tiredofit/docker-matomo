@@ -11,7 +11,7 @@ sed -i -e "s#<WEBROOT>#${NGINX_WEBROOT}#g" /assets/cron/crontab.txt
 sed -i -e "s#<NGINX_USER>#${NGINX_USER}#g" /assets/cron/crontab.txt
 
 sanity_db
-db_check mariadb
+db_ready mariadb
 
 ### Check to see if Matomo Installed, if not, download and setup..
 if [ ! -f ${NGINX_WEBROOT}/index.php ]; then
