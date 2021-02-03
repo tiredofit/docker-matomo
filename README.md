@@ -1,6 +1,6 @@
 # tiredofit/matomo
 
-# Introduction
+## Introduction
 
 Dockerfile to build a [matomo](https://www.matomo.org/) container image. It is an Open Source Google Analytics Replacement.
 
@@ -12,11 +12,11 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
 
 [Changelog](CHANGELOG.md)
 
-# Authors
+## Authors
 
 - [Dave Conroy][https://github.com/tiredofit]
 
-# Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
     - [Changelog](CHANGELOG.md)
@@ -32,12 +32,12 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
     - [Shell Access](#shell-access)
    - [References](#references)
 
-# Prerequisites
+## Prerequisites
 
 This image relies on an external MySQL Server, external SMTP Server, external Redis Server and is meant to be run behind a reverse SSL Proxy such as nginx-proxy.
 
 
-# Installation
+## Installation
 
 Automated builds of the image are available on [Registry](https://hub.docker.com/r/tiredofit/matomo) and is the recommended method of installation.
 
@@ -46,14 +46,14 @@ Automated builds of the image are available on [Registry](https://hub.docker.com
 docker pull tiredofit/matomo
 ```
 
-# Quick Start
+### Quick Start
 
 * The quickest way to get started is using [docker-compose](https://docs.docker.com/compose/). See the examples folder for a working [docker-compose.yml](examples/docker-compose.yml) that can be modified for development or production use.
 
 * Set various [environment variables](#environment-variables) to understand the capabilities of this image.
 * Map [persistent storage](#data-volumes) for access to configuration and data files for backup.
 
-# Configuration
+## Configuration
 
 ### Data-Volumes
 
@@ -94,8 +94,8 @@ The following ports are exposed.
 |-----------|-------------|
 | `80` | HTTP |
 
-# Maintenance
-#### Shell Access
+## Maintenance
+### Shell Access
 
 For debugging and maintenance purposes you may want access the containers shell. 
 
@@ -103,7 +103,7 @@ For debugging and maintenance purposes you may want access the containers shell.
 docker exec -it (whatever your container name is e.g. matomo) bash
 ```
 
-# References
+## References
 
 * https://www.matomo.org
 
