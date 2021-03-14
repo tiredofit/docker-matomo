@@ -23,6 +23,8 @@ if [ ! -f ${NGINX_WEBROOT}/index.php ]; then
         print_info "Install Complete"
 fi
 
+echo "alias console='cd /www/html; sudo -u nginx php ./console'" > /root/.bashrc
+
 ### Set Permissions
 chown -R ${NGINX_USER}:${NGINX_GROUP} ${NGINX_WEBROOT}
 liftoff

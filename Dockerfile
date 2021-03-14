@@ -1,4 +1,4 @@
-FROM tiredofit/nginx-php-fpm:7.3
+FROM tiredofit/nginx-php-fpm:8.0
 LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
 
 ENV CRON_PERIOD=60 \

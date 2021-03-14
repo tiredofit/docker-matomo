@@ -1,3 +1,10 @@
+## 3.8.0 2021-03-14 <dave at tiredofit dot ca>
+
+   ### Added
+      - PHP 8.0 Base
+      - Add alias for "console" command
+
+
 ## 3.7.0 2020-06-09 <dave at tiredofit dot ca>
 
    ### Added
