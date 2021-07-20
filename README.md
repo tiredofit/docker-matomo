@@ -1,6 +1,6 @@
 # tiredofit/matomo
 
-## Introduction
+## About
 
 Dockerfile to build a [matomo](https://www.matomo.org/) container image. It is an Open Source Google Analytics Replacement.
 
@@ -12,7 +12,7 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
 
 [Changelog](CHANGELOG.md)
 
-## Authors
+## Maintainer
 
 - [Dave Conroy][https://github.com/tiredofit]
 
@@ -32,7 +32,7 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
     - [Shell Access](#shell-access)
    - [References](#references)
 
-## Prerequisites
+## Prerequisites and Assumptions
 
 This image relies on an external MySQL Server, external SMTP Server, external Redis Server and is meant to be run behind a reverse SSL Proxy such as nginx-proxy.
 
@@ -55,7 +55,7 @@ docker pull tiredofit/matomo
 
 ## Configuration
 
-### Data-Volumes
+### Persistent Storage
 
 The following directories are used for configuration and can be mapped for persistent storage.
 

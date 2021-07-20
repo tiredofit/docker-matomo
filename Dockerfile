@@ -1,5 +1,5 @@
 FROM tiredofit/nginx-php-fpm:8.0
-LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
+LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ENV CRON_PERIOD=60 \
     NGINX_WEBROOT=/www/html \
@@ -23,9 +23,9 @@ RUN set -x && \
         build-base \
         geoip-dev \
         git \
-        libressl \
-        php7-dev \
-        php7-pear \
+        openssl \
+        php8-dev \
+        php8-pear \
         sed \
         tar \
         && \
@@ -34,16 +34,16 @@ RUN set -x && \
         geoip \
         && \
     \
-### Compile & Install Custom PHP7-GeoIP Module
-    git clone https://github.com/Zakay/geoip /usr/src/geoip && \
-    cd /usr/src/geoip && \
-    phpize7 && \
-    ./configure --with-php-config=/usr/bin/php-config7 && \
-    make && \
-    make install && \
-    #echo 'extension=geoip.so' >> /etc/php7/conf.d/00_geoip.ini && \
-    #echo 'geoip.custom_directory=/www/piwik/misc' >> /etc/php7/php.ini && \
-    echo 'always_populate_raw_post_data=-1' >> /etc/php7/php.ini && \
+### Compile & Install Custom PHP8-GeoIP Module
+#    git clone https://github.com/Zakay/geoip /usr/src/geoip && \
+#    cd /usr/src/geoip && \
+#    phpize8 && \
+#    ./configure --with-php-config=/usr/bin/php-config8 && \
+#    make && \
+#    make install && \
+#    echo "extension=gnupg.so" > /etc/php${PHP_BASE:0:1}/conf.d/20-geoip.ini && \    
+#    echo 'geoip.custom_directory=/www/html/misc' >> /etc/php8/php.ini && \
+#    echo 'always_populate_raw_post_data=-1' >> /etc/php8/php.ini && \
     \
 ### Cleanup
     apk del .piwik-build-deps && \

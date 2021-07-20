@@ -1,3 +1,9 @@
+## 3.8.1 2021-07-20 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Rework the cron scheduling by prefixing with Timezone
+
+
 ## 3.8.0 2021-03-14 <dave at tiredofit dot ca>
 
    ### Added

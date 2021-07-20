@@ -1,3 +1,0 @@
-*/<CRON_PERIOD> * * * * sudo -u <NGINX_USER> /usr/bin/php7 <WEBROOT>/console core:archive >/dev/null 2>&1
-
-
