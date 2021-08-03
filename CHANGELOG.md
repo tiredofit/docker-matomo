@@ -1,3 +1,10 @@
+## 3.9.0 2021-08-03 <dave at tiredofit dot ca>
+
+   ### Added
+      - PHP 8.0 Base
+      - Tighten up Nginx configuration
+
+
 ## 3.8.1 2021-07-20 <dave at tiredofit dot ca>
 
    ### Changed
