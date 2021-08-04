@@ -1,3 +1,9 @@
+## 3.9.1 2021-08-04 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Fix duplicate location block in nginx configuration
+
+
 ## 3.9.0 2021-08-03 <dave at tiredofit dot ca>
 
    ### Added
