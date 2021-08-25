@@ -1,3 +1,9 @@
+## 3.9.2 2021-08-25 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Fix for Timezone entry in Cron
+
+
 ## 3.9.1 2021-08-04 <dave at tiredofit dot ca>
 
    ### Changed
