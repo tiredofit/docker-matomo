@@ -1,4 +1,4 @@
-FROM tiredofit/nginx-php-fpm:8.0
+FROM docker.io/tiredofit/nginx-php-fpm:8.0
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ENV CRON_PERIOD=60 \

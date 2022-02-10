@@ -17,7 +17,7 @@ services:
     - ./data:/www/html
     - ./logs:/www/logs
     environment:
-    - ZABBIX_HOSTNAME=matomo-app
+    - CONTAINER_NAME=matomo-app
 
     - DB_HOST=matomo-db
     - DB_NAME=matomo
@@ -41,7 +41,7 @@ services:
     - DB_USER=matomo
     - DB_PASS=userpassword
 
-    - ZABBIX_HOSTNAME=matomo-db
+    - CONTAINER_NAME=matomo-db
     networks:
     - internal
     - services
@@ -53,7 +53,7 @@ services:
     volumes:
     - ./redis:/data:Z
     environment:
-    - ZABBIX_HOSTNAME=matomo-db-redis
+    - CONTAINER_NAME=matomo-db-redis
     networks:
     - internal
     - services
@@ -67,7 +67,7 @@ services:
     volumes:
     - ./dbbackup:/backup
     environment:
-    - ZABBIX_HOSTNAME=matomo-db-backup
+    - CONTAINER_NAME=matomo-db-backup
     - DB_HOST=matomo-db
     - DB_TYPE=mysql
     - DB_NAME=matomo
