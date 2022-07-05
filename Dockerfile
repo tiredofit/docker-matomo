@@ -1,4 +1,4 @@
-FROM docker.io/tiredofit/nginx-php-fpm:8.0
+FROM docker.io/tiredofit/nginx-php-fpm:8.1
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ENV CRON_PERIOD=60 \
@@ -15,7 +15,7 @@ ENV CRON_PERIOD=60 \
     PHP_ENABLE_XML=TRUE \
     PHP_ENABLE_XMLREADER=TRUE \
     PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
-    NGINX_SITE_ENABLED=matomo
+    NGINX_SITE_ENABLED=matomo \
     IMAGE_NAME="tiredofit/matomo" \
     IMAGE_REPO_URL="https://github.com/tiredofit/docker-matomo"
 

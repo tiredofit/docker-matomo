@@ -1,3 +1,9 @@
+## 3.9.5 2022-07-05 <dave at tiredofit dot ca>
+
+   ### Added
+      - Switch to PHP 8.1 Base
+
+
 ## 3.9.4 2022-06-23 <dave at tiredofit dot ca>
 
    ### Added
