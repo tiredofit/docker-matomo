@@ -25,4 +25,4 @@ RUN set -x && \
     rm -rf /var/cache/apk/* /usr/src/*
 
 ### Add Files
-ADD install /
+COPY install /
