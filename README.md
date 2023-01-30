@@ -39,11 +39,11 @@ This image relies on an external MySQL Server, external SMTP Server, external Re
 
 ## Installation
 
-Automated builds of the image are available on [Registry](https://hub.docker.com/r/tiredofit/matomo) and is the recommended method of installation.
+Automated builds of the image are available on [Registry](https://hub.docker.com/r/tiredofit/matomo)
 
 
 ```bash
-docker pull tiredofit/matomo
+docker pull docker.io/tiredofdit/matomo
 ```
 
 ### Quick Start
