@@ -18,19 +18,20 @@ Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is a
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-    - [Changelog](CHANGELOG.md)
-- [Prerequisites](#prerequisites)
+- [About](#about)
+- [Maintainer](#maintainer)
+- [Table of Contents](#table-of-contents)
+- [Prerequisites and Assumptions](#prerequisites-and-assumptions)
 - [Installation](#installation)
-- [Quick Start](#quick-start)
+  - [Quick Start](#quick-start)
 - [Configuration](#configuration)
-    - [Database](#database)
-    - [Data Volumes](#data-volumes)
-    - [Environment Variables](#environmentvariables)   
-    - [Networking](#networking)
+  - [Persistent Storage](#persistent-storage)
+  - [Database](#database)
+  - [Environment Variables](#environment-variables)
+  - [Networking](#networking)
 - [Maintenance](#maintenance)
-    - [Shell Access](#shell-access)
-   - [References](#references)
+  - [Shell Access](#shell-access)
+- [References](#references)
 
 ## Prerequisites and Assumptions
 
@@ -59,10 +60,10 @@ docker pull docker.io/tiredofdit/matomo
 
 The following directories are used for configuration and can be mapped for persistent storage.
 
-| Directory | Description |
-|-----------|-------------|
-| `/www/matomo` | Root matomo Directory |
-| `/www/logs` | Nginx and php-fpm logfiles |
+| Directory     | Description                |
+| ------------- | -------------------------- |
+| `/www/matomo` | Root matomo Directory      |
+| `/www/logs`   | Nginx and php-fpm logfiles |
 
 ### Database
 
@@ -78,26 +79,26 @@ GRANT ALL PRIVILEGES ON `matomo`.* TO 'matomo'@'%.%.%.%';
 
 Below is the complete list of available options that can be used to customize your installation.
 
-| Parameter | Description |
-|-----------|-------------|
-| `DB_HOST` | MySQL external container hostname (e.g. matomo1-db)
-| `DB_NAME` | MySQL database name i.e. (e.g. matomo)
-| `DB_USER` | MySQL username for database (e.g. matomo)
-| `DB_PASS` | MySQL password for database (e.g. userpassword)
+| Parameter | Description                                         | Default | `_FILE` |
+| --------- | --------------------------------------------------- | ------- | ------- |
+| `DB_HOST` | MySQL external container hostname (e.g. matomo1-db) |         | x       |
+| `DB_NAME` | MySQL database name i.e. (e.g. matomo)              |         | x       |
+| `DB_USER` | MySQL username for database (e.g. matomo)           |         | x       |
+| `DB_PASS` | MySQL password for database (e.g. userpassword)     |         | x       |
 
 
 ### Networking
 
 The following ports are exposed.
 
-| Port      | Description |
-|-----------|-------------|
-| `80` | HTTP |
+| Port | Description |
+| ---- | ----------- |
+| `80` | HTTP        |
 
 ## Maintenance
 ### Shell Access
 
-For debugging and maintenance purposes you may want access the containers shell. 
+For debugging and maintenance purposes you may want access the containers shell.
 
 ```bash
 docker exec -it (whatever your container name is e.g. matomo) bash
