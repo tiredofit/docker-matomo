@@ -44,7 +44,7 @@ Automated builds of the image are available on [Registry](https://hub.docker.com
 
 
 ```bash
-docker pull docker.io/tiredofdit/matomo
+docker pull docker.io/tiredofit/matomo
 ```
 
 ### Quick Start
