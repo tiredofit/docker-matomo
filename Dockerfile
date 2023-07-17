@@ -1,4 +1,7 @@
-FROM docker.io/tiredofit/nginx-php-fpm:8.1
+ARG PHP_VERSION=8.2
+ARG DISTRO="alpine"
+
+FROM docker.io/tiredofit/nginx-php-fpm:${PHP_VERSION}-${DISTRO}
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ENV CRON_PERIOD=60 \
@@ -19,10 +22,10 @@ ENV CRON_PERIOD=60 \
     IMAGE_NAME="tiredofit/matomo" \
     IMAGE_REPO_URL="https://github.com/tiredofit/docker-matomo"
 
-RUN set -x && \
-    apk update && \
-    apk upgrade && \
-    rm -rf /var/cache/apk/* /usr/src/*
+RUN source /assets/functions/00-container && \
+    set -x && \
+    package update && \
+    package upgrade && \
+    package cleanup
 
-### Add Files
 COPY install /

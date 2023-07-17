@@ -1,3 +1,9 @@
+## 3.9.8 2023-07-17 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Move to PHP 8.2 and modernize Dockerfile
+
+
 ## 3.9.7 2022-11-23 <dave at tiredofit dot ca>
 
    ### Added
