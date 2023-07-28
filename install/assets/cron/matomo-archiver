@@ -1,1 +1,0 @@
-*/<CRON_PERIOD> * * * * sudo -u <NGINX_USER> TZ=<TIMEZONE> php <WEBROOT>/console core:archive >/dev/null 2>&1

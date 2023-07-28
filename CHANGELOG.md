@@ -1,3 +1,11 @@
+## 3.9.9 2023-07-28 <dave at tiredofit dot ca>
+
+   ### Changed
+      - Roll back to PHP 8.1 due to broken archiving of reports
+      - Fix issue with .bashrc getting overwritten for 'console' command
+      - Redo scheduled task for archiving of reports
+
+
 ## 3.9.8 2023-07-17 <dave at tiredofit dot ca>
 
    ### Changed
