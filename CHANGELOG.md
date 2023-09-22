@@ -1,3 +1,10 @@
+## 3.9.10 2023-09-21 <dave at tiredofit dot ca>
+
+   ### Added
+      - Now using tiredofit/unit as a backend instead of tiredofit/nginx and tiredofit/nginx-php-fpm
+      - PHP 8.2
+
+
 ## 3.9.9 2023-07-28 <dave at tiredofit dot ca>
 
    ### Changed
