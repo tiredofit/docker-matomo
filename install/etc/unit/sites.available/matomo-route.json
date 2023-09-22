@@ -1,0 +1,62 @@
+[
+    {
+        "match": {
+            "uri": [
+                "/index.php",
+                "/js/index.php",
+                "/matomo.php",
+                "/misc/cron/archive.php",
+                "/piwik.php",
+                "/plugins/HeatmapSessionRecording/configs.php"
+            ]
+        },
+
+        "action": {
+            "pass": "applications/{{UNIT_SITE_ENABLED}}/direct"
+        }
+    },
+    {
+        "match": {
+            "uri": [
+                "*.php",
+                "*/.htaccess",
+                "/config/*",
+                "/core/*",
+                "/lang/*",
+                "/tmp/*"
+            ]
+        },
+
+        "action": {
+            "return": 404
+        }
+    },
+    {
+        "match": {
+            "uri": "~\\.(css|gif|html?|ico|jpg|js(on)?|png|svg|ttf|woff2?)$"
+        },
+
+        "action": {
+            "share": "{{UNIT_WEBROOT}}$uri"
+        }
+    },
+    {
+        "match": {
+            "uri": [
+                "!/libs/*",
+                "!/node_modules/*",
+                "!/plugins/*",
+                "!/vendor/*",
+                "!/misc/cron/*",
+                "!/misc/user/*"
+            ]
+        },
+
+        "action": {
+            "share": "{{UNIT_WEBROOT}}$uri",
+            "fallback": {
+                "pass": "applications/{{UNIT_SITE_ENABLED}}/index"
+            }
+        }
+    }
+]

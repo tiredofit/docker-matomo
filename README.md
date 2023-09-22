@@ -6,9 +6,6 @@ Dockerfile to build a [matomo](https://www.matomo.org/) container image. It is a
 
 It will automatically download the latest Piwik release upon build, and if you have set correct environment variables, will autocreate a database if you wish.
 
-This Container uses Alpine:Edge as a base.
-Additional Components are PHP7 w/ APC, OpCache, LDAP Support - MySQL Client is also available.
-
 
 [Changelog](CHANGELOG.md)
 
@@ -63,7 +60,7 @@ The following directories are used for configuration and can be mapped for persi
 | Directory     | Description                |
 | ------------- | -------------------------- |
 | `/www/matomo` | Root matomo Directory      |
-| `/www/logs`   | Nginx and php-fpm logfiles |
+| `/var/log/unit`   | Nginx Unit logfiles |
 
 ### Database
 

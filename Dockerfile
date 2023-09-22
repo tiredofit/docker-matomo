@@ -1,7 +1,7 @@
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8.2
 ARG DISTRO="alpine"
 
-FROM docker.io/tiredofit/nginx-php-fpm:${PHP_VERSION}-${DISTRO}
+FROM docker.io/tiredofit/unit-php:${PHP_VERSION}-${DISTRO}
 LABEL maintainer="Dave Conroy (github.com/tiredofit)"
 
 ENV CRON_PERIOD=60 \
@@ -18,7 +18,7 @@ ENV CRON_PERIOD=60 \
     PHP_ENABLE_XML=TRUE \
     PHP_ENABLE_XMLREADER=TRUE \
     PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
-    NGINX_SITE_ENABLED=matomo \
+    UNIT_SITE_ENABLED=matomo \
     IMAGE_NAME="tiredofit/matomo" \
     IMAGE_REPO_URL="https://github.com/tiredofit/docker-matomo"
 
