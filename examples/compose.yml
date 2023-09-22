@@ -1,0 +1,85 @@
+services:
+
+  matomo-app:
+    image: tiredofit/matomo
+    container_name: matomo-app
+    links:
+      - matomo-db
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.matomo.rule=Host(`matomo.example.com`)
+      - traefik.http.services.matomo.loadbalancer.server.port=80
+    volumes:
+      - ./data:/www/html
+      - ./logs/unit:/www/logs
+    environment:
+      - TIMEZONE=America/Vancouver
+      - CONTAINER_NAME=matomo-app
+
+      - DB_HOST=matomo-db
+      - DB_NAME=matomo
+      - DB_USER=matomo
+      - DB_PASS=userpassword
+
+      - CRON_PERIOD=60
+    networks:
+      - proxy
+      - services
+    restart: always
+
+  matomo-db:
+    image: tiredofit/mariadb:10.11
+    container_name: matomo-db
+    volumes:
+      - /var/local/db/matomo:/var/lib/mysql
+    environment:
+      - TIMEZONE=America/Vancouver
+      - CONTAINER_NAME=matomo-db
+
+      - ROOT_PASS=password
+      - DB_NAME=matomo
+      - DB_USER=matomo
+      - DB_PASS=userpassword
+    networks:
+    - internal
+    - services
+    restart: always
+
+  matomo-db-redis:
+    image: tiredofit/redis:latest
+    container_name: matomo-db-redis
+    environment:
+      - TIMEZONE=America/Vancouver
+      - CONTAINER_NAME=matomo-db-redis
+    networks:
+      - internal
+      - services
+    restart: always
+
+  matomo-db-backup:
+    image: tiredofit/db-backup
+    container_name: matomo-db-backup
+    links:
+      - matomo-db
+    volumes:
+      - ./dbbackup:/backup
+    environment:
+      - TIMEZONE=America/Vancouver
+      - CONTAINER_NAME=matomo-db-backup
+      - DB_HOST=matomo-db
+      - DB_TYPE=mysql
+      - DB_NAME=matomo
+      - DB_USER=matomo
+      - DB_PASSWORD=userpassword
+      - DB_DUMP_FREQ=1440
+      - DB_DUMP_BEGIN=0000
+      - DB_CLEANUP_TIME=8640
+    networks:
+      - services
+    restart: always
+
+networks:
+  proxy:
+    external: true
+  services:
+    external: true
