@@ -1,3 +1,9 @@
+## 4.0.1 2024-01-26 <dave at tiredofit dot ca>
+
+   ### Changed
+      - PHP 8.2
+
+
 ## 4.0.0 2023-09-21 <dave at tiredofit dot ca>
 
    ### Added
