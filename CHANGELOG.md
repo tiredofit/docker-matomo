@@ -1,3 +1,10 @@
+## 5.0.0 2025-07-12 <dave at tiredofit dot ca>
+
+   ### Added
+      - Switch back to tiredofit/nginx-php-fpm
+      - PHP 8.3
+
+
 ## 4.0.1 2024-01-26 <dave at tiredofit dot ca>
 
    ### Changed
